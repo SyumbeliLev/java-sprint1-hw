@@ -54,19 +54,19 @@ public class StepTracker {
     }
 
     void printStatistic() {
-        MonthData monthData;
+
         System.out.println("Введите число месяца:");
         int dayOfTheMonth = scanner.nextInt();
 
         if (dayOfTheMonth > 0 & dayOfTheMonth <= 12) { // проверка номера месяца
-            monthData = monthToData[dayOfTheMonth - 1];
-            monthData.printDaysAndStepsFromMonth(); // печатаем день и шаги за день.
-            System.out.println("Пройдено шагов за месяц: " + monthData.sumStepsFromMonth());// печатаем максимальное пройденное количества шагов за месяц
-            System.out.println("Максимальное количество пройденых шагов за день в этом месяце: " + monthData.maxSteps());// печатаем сумму шагов за месяц
-            System.out.println("Среднее количество шагов в день пройденные в этом месяце: " + (monthData.sumStepsFromMonth() / 30));
-            System.out.println("Пройденная дистанция: " + converter.convertToKm(monthData.sumStepsFromMonth()) + " км");
-            System.out.println("Количество сожжённых килокалорий: " + converter.convertStepsToKilocalories(monthData.sumStepsFromMonth()));
-            System.out.println("Лучшая серия: " + monthData.bestSeries(goalByStepsPerDay));
+
+            monthToData[dayOfTheMonth - 1].printDaysAndStepsFromMonth(); // печатаем день и шаги за день.
+            System.out.println("Пройдено шагов за месяц: " + monthToData[dayOfTheMonth - 1].sumStepsFromMonth());// печатаем максимальное пройденное количества шагов за месяц
+            System.out.println("Максимальное количество пройденых шагов за день в этом месяце: " + monthToData[dayOfTheMonth - 1].maxSteps());// печатаем сумму шагов за месяц
+            System.out.println("Среднее количество шагов в день пройденные в этом месяце: " + (monthToData[dayOfTheMonth - 1].sumStepsFromMonth() / 30));
+            System.out.println("Пройденная дистанция: " + converter.convertToKm(monthToData[dayOfTheMonth - 1].sumStepsFromMonth()) + " км");
+            System.out.println("Количество сожжённых килокалорий: " + converter.convertStepsToKilocalories(monthToData[dayOfTheMonth - 1].sumStepsFromMonth()));
+            System.out.println("Лучшая серия: " + monthToData[dayOfTheMonth - 1].bestSeries(goalByStepsPerDay));
 
         } else {
             System.out.println("Ошибка ввода.");
